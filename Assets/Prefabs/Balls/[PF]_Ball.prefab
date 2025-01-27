@@ -105,5 +105,14 @@ MonoBehaviour:
   minY: -4.27
   maxY: 5.11
   minSpeed: 2
-  maxSpeed: 17
+  maxSpeed: 7
   secondsToMaxSpeed: 30
+  target: {fileID: 8351641523904416673, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
+  minLaunchSpeed: 15
+  maxLaunchSpeed: 30
+  minTimeToLaunch: 5
+  maxTimeToLaunch: 15
+  launching: 0
+  cooldown: 15
+  launchDuration: 30
+  timeLastLaunch: 0

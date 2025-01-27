@@ -34,26 +34,40 @@ public class Ball_Behavior : MonoBehaviour
     void Update()
     {
         Vector2 currentPosition = gameObject.GetComponent<Transform>().position;
-        float distance = Vector2.Distance(currentPosition, targetPosition);
-        if(distance > 0.1){
-            float currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, getDifficultyPercentage());
+        if (launching == false && onCooldown() == false)
+        {
+            launch();
+        }
+        float distance = Vector2.Distance((Vector2)transform.position, targetPosition);
+        if (distance > 0.1f)
+        {
+            float difficulty = getDifficultyPercentage();
+            float currentSpeed;
+            if (launching == true)
+            {
+                float launchingForHowLong = Time.time - timeLastLaunch; 
+                if (launchingForHowLong >= launchDuration)
+                {
+                    startCooldown();
+                }
+                currentSpeed = Mathf.Lerp(minLaunchSpeed, maxLaunchSpeed, getDifficultyPercentage());
+            }
+            else
+            {
+                currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, getDifficultyPercentage());
+            }
             currentSpeed *= Time.deltaTime;
-            // Randomize speed based on difficulty percentage
             Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, currentSpeed);
             transform.position = newPosition;
-        }else{
+        }else
+        {
+            if (launching == true)
+            {
+                startCooldown();
+            }
             targetPosition = getRandomposition();
         }
-    }
 
-    Vector2 getRandomposition(){
-        float randomX = Random.Range(minX, maxX);
-
-        float randomY = Random.Range(minY, maxY);
-
-        Vector2 v = new Vector2(randomX, randomY);
-
-        return v;
     }
 
     private float getDifficultyPercentage(){
@@ -62,6 +76,39 @@ public class Ball_Behavior : MonoBehaviour
     }
 
     public void launch(){
-        launching = true;
+        targetPosition = target.transform.position;
+        if (launching == false)
+        {
+            targetPosition = target.transform.position;
+            launching = true;
+        }
+        Debug.Log("launching");
     }
-}
+
+    bool onCooldown() 
+    {
+        bool onCooldown = true;
+        float timeSinceLastLaunch = Time.time - timeLastLaunch;
+        if (timeSinceLastLaunch >= cooldown) {
+            onCooldown = false;
+        }
+        return onCooldown;
+    }
+
+    void startCooldown()
+    {
+        launching = false;
+        timeLastLaunch = Time.time;
+    }
+
+        Vector2 getRandomposition(){
+        float randomX = Random.Range(minX, maxX);
+
+        float randomY = Random.Range(minY, maxY);
+
+        Vector2 v = new Vector2(randomX, randomY);
+
+        return v;
+        
+        }
+    } 
