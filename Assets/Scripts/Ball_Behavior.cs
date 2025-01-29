@@ -82,7 +82,7 @@ public class Ball_Behavior : MonoBehaviour
             targetPosition = target.transform.position;
             launching = true;
         }
-        Debug.Log("launching");
+        //Debug.Log("launching");
     }
 
     bool onCooldown() 
