@@ -742,7 +742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -822.75, y: -55.1}
+  m_AnchoredPosition: {x: -822.75, y: -55.09999}
   m_SizeDelta: {x: -628.02, y: -557.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &978183287
@@ -794,7 +794,6 @@ GameObject:
   - component: {fileID: 984661246}
   - component: {fileID: 984661248}
   - component: {fileID: 984661247}
-  - component: {fileID: 984661249}
   m_Layer: 5
   m_Name: UI Panel(Timer)
   m_TagString: Untagged
@@ -860,18 +859,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984661245}
   m_CullTransparentMesh: 1
---- !u!114 &984661249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984661245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0aea716eaa4d4fd78f2c10867276a96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &991198088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -944,6 +931,7 @@ GameObject:
   - component: {fileID: 1110569737}
   - component: {fileID: 1110569739}
   - component: {fileID: 1110569738}
+  - component: {fileID: 1110569740}
   m_Layer: 5
   m_Name: Timer (TMP)
   m_TagString: Untagged
@@ -1001,8 +989,8 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 1
-  m_colorMode: 3
+  m_enableVertexGradient: 0
+  m_colorMode: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
@@ -1069,6 +1057,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110569736}
   m_CullTransparentMesh: 1
+--- !u!114 &1110569740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110569736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0aea716eaa4d4fd78f2c10867276a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1626153114
 GameObject:
   m_ObjectHideFlags: 0
