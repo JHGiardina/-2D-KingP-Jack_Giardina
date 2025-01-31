@@ -33,7 +33,11 @@ public class Ball_Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 currentPosition = gameObject.GetComponent<Transform>().position;
+       
+    }
+    void FixedUpdate()
+    {
+         Vector2 currentPosition = gameObject.GetComponent<Transform>().position;
         if (launching == false && onCooldown() == false)
         {
             launch();
@@ -110,5 +114,12 @@ public class Ball_Behavior : MonoBehaviour
 
         return v;
         
+        }
+    private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log(this + " hit " + collision.gameObject.name);
+            {
+                
+            }
         }
     } 

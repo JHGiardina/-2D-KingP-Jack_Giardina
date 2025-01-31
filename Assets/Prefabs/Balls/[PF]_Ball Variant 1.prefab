@@ -56,6 +56,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2612753881109755140, guid: 72d627ca650de44fdb0ec5ce0f98bed3, type: 3}
+    - target: {fileID: 9111762094180657135, guid: 6244144caca4d4834962d0bff2e5328d, type: 3}
+      propertyPath: m_Radius
+      value: 4.1783214
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111762094180657135, guid: 6244144caca4d4834962d0bff2e5328d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.066112876
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111762094180657135, guid: 6244144caca4d4834962d0bff2e5328d, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.033056438
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
