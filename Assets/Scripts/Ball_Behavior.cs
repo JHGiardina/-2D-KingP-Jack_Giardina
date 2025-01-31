@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Ball_Behavior : MonoBehaviour
 {
+            Rigidbody2D body;
             public float minX = -10f;
             public float maxX = 10f;
             public float minY = -4.27f;
@@ -26,8 +27,10 @@ public class Ball_Behavior : MonoBehaviour
         // secondsToMaxSpeed = 30;
         // minSpeed = 2f;
         // maxSpeed = 17f;
-
-        targetPosition = getRandomposition();
+  
+        
+            body = GetComponent<Rigidbody2D>();
+            body.position = getRandomposition();
     }
 
     // Update is called once per frame
@@ -37,7 +40,8 @@ public class Ball_Behavior : MonoBehaviour
     }
     void FixedUpdate()
     {
-         Vector2 currentPosition = gameObject.GetComponent<Transform>().position;
+        body = GetComponent<Rigidbody2D>();
+         Vector2 currentPosition = body.position;
         if (launching == false && onCooldown() == false)
         {
             launch();
@@ -62,7 +66,7 @@ public class Ball_Behavior : MonoBehaviour
             }
             currentSpeed *= Time.deltaTime;
             Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, currentSpeed);
-            transform.position = newPosition;
+            body.MovePosition(newPosition);
         }else
         {
             if (launching == true)
@@ -80,10 +84,11 @@ public class Ball_Behavior : MonoBehaviour
     }
 
     public void launch(){
-        targetPosition = target.transform.position;
+        Rigidbody2D targetBody = target.GetComponent<Rigidbody2D>();
+        targetPosition = targetBody.position;
         if (launching == false)
         {
-            targetPosition = target.transform.position;
+            targetPosition = targetBody.position;
             launching = true;
         }
         //Debug.Log("launching");
@@ -118,8 +123,5 @@ public class Ball_Behavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
         {
             Debug.Log(this + " hit " + collision.gameObject.name);
-            {
-                
-            }
         }
     } 
