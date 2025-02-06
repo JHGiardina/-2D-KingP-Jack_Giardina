@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9111762094180657135}
   m_Layer: 0
   m_Name: '[PF]_Ball'
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2586146713883560418}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cebc0a41dc73447e1aec7044b00e9a44, type: 3}
   m_Name: 
@@ -118,6 +118,7 @@ MonoBehaviour:
   cooldown: 15
   launchDuration: 30
   timeLastLaunch: 0
+  currentSpeed: 0
 --- !u!50 &2696841877440192287
 Rigidbody2D:
   serializedVersion: 5
@@ -143,7 +144,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &9111762094180657135
 CircleCollider2D:

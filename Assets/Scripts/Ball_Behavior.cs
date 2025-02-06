@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class Ball_Behavior : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class Ball_Behavior : MonoBehaviour
             public float cooldown;
             public float launchDuration;
             public float timeLastLaunch;
+            public float currentSpeed;
+            public TextMeshProUGUI scoreText;
+            public int score = 0;
+            public Player player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,7 +35,7 @@ public class Ball_Behavior : MonoBehaviour
   
         
             body = GetComponent<Rigidbody2D>();
-            body.position = getRandomposition();
+            targetPosition = getRandomposition();
     }
 
     // Update is called once per frame
@@ -41,7 +46,7 @@ public class Ball_Behavior : MonoBehaviour
     void FixedUpdate()
     {
         body = GetComponent<Rigidbody2D>();
-         Vector2 currentPosition = body.position;
+        Vector2 currentPosition = body.position;
         if (launching == false && onCooldown() == false)
         {
             launch();
@@ -50,7 +55,6 @@ public class Ball_Behavior : MonoBehaviour
         if (distance > 0.1f)
         {
             float difficulty = getDifficultyPercentage();
-            float currentSpeed;
             if (launching == true)
             {
                 float launchingForHowLong = Time.time - timeLastLaunch; 
@@ -90,6 +94,11 @@ public class Ball_Behavior : MonoBehaviour
         {
             targetPosition = targetBody.position;
             launching = true;
+            if (player.isDead == false)
+            {
+                score++;
+                scoreText.text = "Score: \n" + score;
+            }
         }
         //Debug.Log("launching");
     }
@@ -122,6 +131,13 @@ public class Ball_Behavior : MonoBehaviour
         }
     private void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log(this + " hit " + collision.gameObject.name);
+            //Debug.Log(this + " hit " + collision.gameObject.name);
+            Vector2 currentPosition = body.position;
+            currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, getDifficultyPercentage());
+            currentSpeed *= Time.deltaTime;
+            targetPosition = getRandomposition();
+            Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, currentSpeed);
+            body.MovePosition(newPosition);
+
         }
     } 
