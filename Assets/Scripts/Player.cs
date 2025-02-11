@@ -9,9 +9,7 @@ public class Player : MonoBehaviour
     public Vector2 newPosition;
     public Vector3 mousePosG;
     Camera cam;
-    [Header("Player Death")]
     public bool isDead = false;
-    public bool canDie;
     [Header("Dash Setting's")]
     public float dashSpeed;
     public float baseSpeed;
@@ -21,12 +19,21 @@ public class Player : MonoBehaviour
     public float dashCooldown;
     public float cooldownRate;
     private float dashEnd; 
+    [Header("Invincibility Setting's")]
+    public bool canDie;
+    public float invCoolDown;
+    private float invStart;
+    private float invEnd;
+    public float invDur;
+    private float invTime;
+    public float invCoolDownRate;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cam = Camera.main;
         isDashing = false;
+        canDie = true;
 
     }
 
@@ -39,6 +46,7 @@ public class Player : MonoBehaviour
         newPosition = Vector2.MoveTowards(transform.position, mousePosG, speed * Time.fixedDeltaTime);
         transform.position = newPosition;
         Dash();
+        invincible();
 
 
     }
@@ -49,6 +57,7 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
             isDead = true;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -76,6 +85,27 @@ public class Player : MonoBehaviour
             }
 
         }
+    }
+    private void invincible()
+    {
+        invCoolDown -= Time.deltaTime;
+        if (canDie == true && Input.GetMouseButtonDown(1))
+        {
+            if (invCoolDown <=0)
+            {
+                canDie = false;
+                invCoolDown = invCoolDownRate;
+                invStart = Time.time;
+            }
+
+        }if (canDie == false){
+            invTime = Time.time - invStart;
+            if (invTime >= invDur)
+            {
+                canDie = true;
+                invEnd = Time.time;
+            }
+        } 
     }
 
 }   

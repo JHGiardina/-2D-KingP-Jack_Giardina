@@ -1681,7 +1681,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1304574557049142328, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
       propertyPath: canDie
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304574557049142328, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
+      propertyPath: invDur
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1304574557049142328, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
       propertyPath: dashDur
@@ -1700,12 +1704,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1304574557049142328, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
+      propertyPath: invCoolDown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304574557049142328, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
       propertyPath: cooldownRate
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1304574557049142328, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
       propertyPath: dashCooldown
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304574557049142328, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
+      propertyPath: invCoolDownRate
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5132832551318932492, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
       propertyPath: m_Constraints

@@ -105,6 +105,14 @@ MonoBehaviour:
   speed: 0.22
   newPosition: {x: 0, y: 0}
   mousePosG: {x: 0, y: 0, z: 0}
+  isDead: 0
+  canDie: 1
+  dashSpeed: 0
+  baseSpeed: 0
+  dashDur: 0
+  isDashing: 0
+  dashCooldown: 0
+  cooldownRate: 0
 --- !u!60 &3666744818179760024
 PolygonCollider2D:
   m_ObjectHideFlags: 0
