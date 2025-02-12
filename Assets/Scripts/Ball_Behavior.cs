@@ -6,8 +6,12 @@ public class Ball_Behavior : MonoBehaviour
             Rigidbody2D body;
             public float minX = -10f;
             public float maxX = 10f;
-            public float minY = -4.27f;
-            public float maxY = 5.11f;
+            public float minY = -5f;
+            public float maxY = 5f;
+            private float i_minX;
+            private float i_maxX;
+            private float i_minY;
+            private float i_maxY;
             public float minSpeed;
             public float maxSpeed;
             Vector2 targetPosition;
@@ -35,7 +39,7 @@ public class Ball_Behavior : MonoBehaviour
   
         
             body = GetComponent<Rigidbody2D>();
-            targetPosition = getRandomposition();
+            initialPosition();
     }
 
     // Update is called once per frame
@@ -139,5 +143,30 @@ public class Ball_Behavior : MonoBehaviour
             Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, currentSpeed);
             body.MovePosition(newPosition);
 
+        }
+
+        public void initialPosition()
+        {
+            transform.position = getInitialPosition();
+            targetPosition = getRandomposition();
+            launching = false;
+        }
+
+        public void setBounds(float miX, float miY, float maX, float maY)
+        {
+            i_minX = miX;
+            i_minY = miY;
+            i_maxX = maX;
+            i_maxY = maY;
+        }
+        public Vector2 getInitialPosition()
+        {
+        float randomX = Random.Range(i_minX, i_maxX);
+
+        float randomY = Random.Range(i_minY, i_maxY);
+
+        Vector2 i_v = new Vector2(randomX, randomY);
+
+        return i_v;
         }
     } 
