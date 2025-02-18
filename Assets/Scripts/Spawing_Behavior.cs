@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Spawning_Behavior : MonoBehaviour
 {
-    [Header("Settings")]
+    
     public GameObject[] ball_Variants;
+    [Header("Settings")]
     public GameObject targetObject;
     GameObject newObject;
     public float startTime;

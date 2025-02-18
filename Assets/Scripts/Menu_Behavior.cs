@@ -22,4 +22,9 @@ public class Menu_Behavior : MonoBehaviour
         #endif 
         
     }
+
+    public void gotoPins(){
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Pin_Select");
+
+    }
 }
