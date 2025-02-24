@@ -5,11 +5,12 @@ public class Pins : ScriptableObject
 {
     public Pin[] pins;
 
+
     public int count(){
         return pins.Length;
     }
 
-    public Pin getInx(int index)
+    public Pin getIndex(int index)
     {
         return pins[index];
     }

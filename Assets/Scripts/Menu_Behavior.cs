@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEditor;
+using System.Collections;
 
 public class Menu_Behavior : MonoBehaviour
 {
+
     public void gotoGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Game");
+        StartCoroutine(WaitForSoundAndTransition("Main_Game"));
     }
 
     public void gotoMenu()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Menu");
+        StartCoroutine(WaitForSoundAndTransition("Main_Menu"));
     }
 
     public void quitGame() //GPTo3MH
@@ -26,5 +28,12 @@ public class Menu_Behavior : MonoBehaviour
     public void gotoPins(){
         UnityEngine.SceneManagement.SceneManager.LoadScene("Pin_Select");
 
+    }
+    private IEnumerator WaitForSoundAndTransition(string sceneName)
+    {
+        AudioSource source = GetComponent<AudioSource>();
+        source.Play();
+        yield return new WaitForSeconds(source.clip.length);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 }

@@ -16,10 +16,13 @@ public class Spawning_Behavior : MonoBehaviour
     public float minY;
     public float maxX;
     public float maxY;
+
+    public Pins pinsDB;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        spawnPin();
         spawnBall();
         startTime = Time.time;
     }
@@ -56,5 +59,11 @@ public class Spawning_Behavior : MonoBehaviour
     {
         float SRout = Random.Range(ratioMin, ratioMax);
         return SRout;
+    }
+
+    void spawnPin()
+    {
+    targetObject = Instantiate(pinsDB.getIndex(CharacterManager.selection).pinPrefab, 
+    new Vector3(0f, 0f, 0f), Quaternion.identity);
     }
 }

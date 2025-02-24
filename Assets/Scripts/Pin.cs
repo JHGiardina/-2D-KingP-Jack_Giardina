@@ -5,4 +5,5 @@ public class Pin
 {
     public GameObject pinPrefab;
     public string name;
+
 }
