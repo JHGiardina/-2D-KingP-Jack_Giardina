@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class Dash_Icon : MonoBehaviour
 
 {
@@ -10,6 +11,7 @@ public class Dash_Icon : MonoBehaviour
     public Player player;
     public float coolDownRate;
     public float _coolDown;
+    private Spawning_Behavior spawing_Behavior;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

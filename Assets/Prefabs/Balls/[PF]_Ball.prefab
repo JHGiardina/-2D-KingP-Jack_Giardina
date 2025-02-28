@@ -109,7 +109,7 @@ MonoBehaviour:
   minSpeed: 2
   maxSpeed: 7
   secondsToMaxSpeed: 30
-  target: {fileID: 0}
+  target: {fileID: 8351641523904416673, guid: 093435cd7b5cc47cebc11c134d475626, type: 3}
   minLaunchSpeed: 15
   maxLaunchSpeed: 30
   minTimeToLaunch: 5
@@ -119,6 +119,9 @@ MonoBehaviour:
   launchDuration: 30
   timeLastLaunch: 0
   currentSpeed: 0
+  scoreText: {fileID: 0}
+  score: 0
+  player: {fileID: 0}
 --- !u!50 &2696841877440192287
 Rigidbody2D:
   serializedVersion: 5

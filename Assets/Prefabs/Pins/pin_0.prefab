@@ -102,17 +102,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7a7191f01874c70afe7c87d4a20cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.22
+  speed: 1
   newPosition: {x: 0, y: 0}
   mousePosG: {x: 0, y: 0, z: 0}
   isDead: 0
-  canDie: 1
-  dashSpeed: 0
-  baseSpeed: 0
-  dashDur: 0
+  dashSpeed: 7
+  baseSpeed: 1
+  dashDur: 0.5
   isDashing: 0
   dashCooldown: 0
-  cooldownRate: 0
+  cooldownRate: 3
+  canDie: 1
+  invCoolDown: 0
+  invDur: 3
+  invCoolDownRate: 5
 --- !u!60 &3666744818179760024
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -305,4 +308,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
